@@ -47,8 +47,15 @@ function getHome (req, res) {
     res.redirect('/admin');
   }
 
-  async function getSinglePost (req, res) {
-    const post = new Post(null, null,req.params.id);
+  async function getSinglePost (req, res, next) {
+    let post;
+    try {
+      post = new Post(null, null,req.params.id);
+    } catch (error) {
+      // next(error);
+      return res.render('404');
+      
+    }
     await post.fetch();
   
     if (!post.title || !post.content) {
