@@ -23,7 +23,7 @@ function getHome (req, res) {
     });
   }
 
-  async function createPosts (req, res) {
+  async function createPost (req, res) {
     const enteredTitle = req.body.title;
     const enteredContent = req.body.content;
   
@@ -108,7 +108,7 @@ function getHome (req, res) {
   module.exports = {
     getHome: getHome,
     getAdmin: getAdmin,
-    createPosts: createPosts,
+    createPost: createPost,
     getSinglePost: getSinglePost,
     updatePost: updatePost,
     deletePost: deletePost,
